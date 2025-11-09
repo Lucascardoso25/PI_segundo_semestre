@@ -1,0 +1,103 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background-color: #fff;
+  margin: 0;
+}
+
+.header {
+  background-color: #b20000 ;
+  padding: 10px;
+  color: #fff;
+}
+.logos {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 40px;
+}
+.logo {
+  height: 60px;
+}
+ 
+h1 {
+    margin: 0;
+    font-size: 24px;
+}
+ 
+.subtitulo {
+    background-color: #c0c0c0;
+    padding: 5px;
+    font-weight: bold;
+}
+ 
+.caixa {
+    background-color: white;
+    border: 1px solid #a60000;
+    width: 300px;
+    margin: 30px auto;
+    padding: 20px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+ 
+.caixa button {
+    background-color: #a60000;
+    color: white;
+    border: none;
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+}
+ 
+.caixa button:hover {
+    background-color: #800000;
+}
+.botao-voltar {
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  margin-right: 270px;
+}
+
+
+.voltar img {
+  width: 45px;
+  height: 25px;
+}
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+footer {
+  background-color: #0d0d0d;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 40px;
+}
+
+.logo-sp {
+  height: 40px;
+}
+
+footer .desenvolvido {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+footer .desenvolvido img {
+  height: 45px;
+}
+ 

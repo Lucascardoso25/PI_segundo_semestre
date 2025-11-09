@@ -1,0 +1,208 @@
+/* ================================
+   ESTILO AJUSTADO - WEBVOTE
+   ================================ */
+
+body {
+  font-family: Arial, sans-serif;
+  background: #fff;
+  color: #222;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* ================================
+   CABEÇALHO
+   ================================ */
+.logos {
+  background: #b71c1c;
+  color: #fff;
+  padding: 18px 20px;
+  text-align: center;
+  position: relative;
+}
+
+.logos h1 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.logos {
+  position: absolute;
+  left: 16px;
+  top: 8px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.logos img {
+  height: 64px;
+}
+
+/* ================================
+   CONTEÚDO PRINCIPAL
+   ================================ */
+.container {
+  width: 90%;
+  max-width: 900px;
+  margin: 40px auto;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.card {
+  width: 100%;
+  border: 3px solid #b71c1c;
+  border-radius: 10px;
+  padding: 25px;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card h2 {
+  text-align: center;
+  color: #b71c1c;
+  margin-top: 0;
+}
+
+/* ================================
+   FORMULÁRIOS
+   ================================ */
+label {
+  display: block;
+  margin-top: 12px;
+  font-weight: 600;
+  color: #333;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 6px;
+  box-sizing: border-box;
+  border: 1px solid #c9c9c9;
+  border-radius: 6px;
+  font-size: 15px;
+}
+
+/* ================================
+   BOTÕES
+   ================================ */
+.btn {
+  display: inline-block;
+  padding: 10px 18px;
+  background: #b71c1c;
+  color: #fff;
+  border-radius: 6px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btn:hover {
+  background: #900;
+}
+
+.btn-secondary {
+  background: #c0392b;
+}
+
+.btn-secondary:hover {
+  background: #922b21;
+}
+
+/* ================================
+   CANDIDATOS
+   ================================ */
+.candidatos-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin: 25px 0;
+}
+
+.candidato-card {
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  padding: 10px;
+  width: 160px;
+  text-align: center;
+  transition: 0.3s;
+  background: #f9f9f9;
+  cursor: pointer;
+}
+
+.candidato-card:hover {
+  transform: scale(1.05);
+  border-color: #0077cc;
+  background: #eef6ff;
+}
+
+.candidato-card input[type="radio"] {
+  margin-bottom: 8px;
+}
+
+.foto-container {
+  width: 100%;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #eaeaea;
+}
+
+.foto-candidato {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.nome-candidato {
+  margin-top: 10px;
+  font-weight: bold;
+  color: #333;
+}
+
+.ra-candidato {
+  font-size: 14px;
+  color: #666;
+}
+
+/* ================================
+   RODAPÉ
+   ================================ */
+footer {
+  background-color: #0d0d0d;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 40px;
+}
+
+.logo-sp {
+  height: 40px;
+}
+
+footer .desenvolvido {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+footer .desenvolvido img {
+  height: 45px;
+}

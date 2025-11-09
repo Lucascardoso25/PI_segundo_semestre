@@ -1,0 +1,155 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background-color: #fff;
+  margin: 0;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+/* Cabeçalho */
+.header {
+  background-color: #b20000 ;
+  padding: 10px;
+  color: #fff;
+  text-align: center;
+}
+.logos {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 40px;
+}
+.logo {
+  height: 60px;
+}
+/* ===== FOTO DE PERFIL ===== */
+.top-left {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+}
+.avatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 2px solid #b20000;
+  object-fit: cover;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.avatar:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 8px #b20000;
+}
+.avatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 2px solid #9b9898;
+  object-fit: cover;
+}
+
+h1, h2 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.caixa {
+  background-color: #ffffff;
+  border: 2px solid #b20000;
+  width: 320px;
+  margin: 40px auto;
+  padding: 25px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  border-radius: 10px;
+  text-align: left;
+  font-family: Arial, sans-serif;
+}
+
+.caixa legend {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.caixa input[type="text"],
+.caixa input[type="number"],
+.caixa select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #a60000;
+  border-radius: 6px;
+  font-size: 14px;
+  box-sizing: border-box;
+  margin-bottom: 15px;
+  background-color: #f9f9f9;
+}
+
+.caixa button {
+  background-color: #a60000;
+  color: white;
+  border: none;
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.caixa button:hover {
+  background-color: red;
+}
+
+.botao-voltar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.voltar img {
+  width: 45px;
+  height: 25px;
+}
+
+/* Rodapé */
+footer {
+  background-color: #0d0d0d;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 40px;
+}
+footer img.logo-sp {
+  height: 40px;
+}
+footer .desenvolvido {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+footer .desenvolvido img {
+  height: 45px;
+}
+
+
+.titulo {
+  text-align: left;
+  color: #a60000;
+  font-weight: bold;
+  margin-bottom: 15px;
+}

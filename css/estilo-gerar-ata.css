@@ -1,0 +1,189 @@
+/* ================================
+   ESTILO - GERAR ATA (WEBVOTE)
+   ================================ */
+
+body {
+  font-family: Arial, sans-serif;
+  background: #fff;
+  color: #222;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* ================================
+   CABEÇALHO
+   ================================ */
+.header {
+  background-color: #b20000;
+  padding: 10px;
+  text-align: center;
+  color: #fff;
+  font-weight: bold;
+}
+
+.logos {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 40px;
+}
+
+/* ================================
+   CONTEÚDO PRINCIPAL
+   ================================ */
+main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+.caixa {
+  background-color: #fff;
+  border: 3px solid #b71c1c;
+  border-radius: 10px;
+  padding: 30px;
+  width: 420px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.caixa h2 {
+  color: #b71c1c;
+  margin-bottom: 20px;
+}
+
+/* ================================
+   FORMULÁRIO
+   ================================ */
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+legend {
+  font-weight: bold;
+  color: #333;
+  margin-top: 12px;
+  align-self: flex-start;
+}
+
+input[type="number"],
+select {
+  width: 100%;
+  max-width: 320px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 15px;
+  background: #fdfdfd;
+  margin-bottom: 12px;
+}
+
+input:focus,
+select:focus {
+  border-color: #b71c1c;
+  outline: none;
+}
+
+/* ================================
+   BOTÃO PADRÃO
+   ================================ */
+.btn {
+  display: inline-block;
+  width: 100%;
+  max-width: 320px;
+  padding: 10px 18px;
+  background: #b71c1c;
+  color: #fff;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.btn:hover {
+  background: #900;
+}
+
+/* ================================
+   RESULTADOS (ATA)
+   ================================ */
+.ata {
+  margin-top: 20px;
+  text-align: left;
+  border-top: 2px solid #b71c1c;
+  padding-top: 20px;
+}
+
+.ata h2,
+.ata h3 {
+  color: #b71c1c;
+}
+
+.ata table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.ata th,
+.ata td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: center;
+}
+
+/* ================================
+   BOTÃO VOLTAR
+   ================================ */
+.botao-voltar {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.voltar img {
+  width: 45px;
+  height: 25px;
+  transition: transform 0.2s;
+}
+
+.voltar img:hover {
+  transform: scale(1.1);
+}
+
+/* ================================
+   RODAPÉ
+   ================================ */
+footer {
+  background-color: #0d0d0d;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 40px;
+  margin-top: auto;
+}
+
+footer .logo-sp {
+  height: 40px;
+}
+
+footer .desenvolvido {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+footer .desenvolvido img {
+  height: 45px;
+}

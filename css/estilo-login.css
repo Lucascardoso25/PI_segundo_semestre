@@ -1,0 +1,131 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #fff;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Cabeçalho */
+.header {
+  background-color: #b20000 ;
+  padding: 10px;
+  color: #fff;
+  text-align: center;
+}
+.logos {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 40px;
+}
+.logo {
+  height: 60px;
+}
+
+
+/* Área principal */
+.container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
+}
+
+/* Cartão de login */
+.card {
+  border: 2px solid #b71c1c;
+  border-radius: 5px;
+  padding: 20px 30px;
+  width: 300px;
+  text-align: left;
+  background-color: #fff;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+}
+
+.card h2 {
+  text-align: center;
+  color: #b71c1c;
+  margin-bottom: 15px;
+}
+
+/* Campos */
+label {
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 6px;
+  border: 1px solid #b71c1c;
+  border-radius: 3px;
+  background-color: #f2f2f2;
+}
+
+/* ===== BOTÕES ===== */
+.botoes {
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  height: 30px;
+  width: 50px;
+}
+
+.btn, .btn-secondary {
+  flex: 1;
+  background-color: #b71c1c;
+  color: white;
+  border: none;
+  padding: 10px 0;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 16px;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover */
+.btn:hover,
+.btn-secondary:hover {
+  background-color: red;
+}
+
+
+/* Mensagem de erro */
+.erro {
+  text-align: center;
+  color: #b71c1c;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Rodapé */
+footer {
+  background-color: #0d0d0d;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 40px;
+}
+footer img.logo-sp {
+  height: 40px;
+}
+footer .desenvolvido {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+footer .desenvolvido img {
+  height: 45px;
+}
+

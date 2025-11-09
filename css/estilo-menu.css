@@ -1,0 +1,140 @@
+/* ===== CONFIGURAÇÃO GERAL ===== */
+body {
+  font-family: "Arial", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #fff;
+  text-align: center;
+}
+
+/* Cabeçalho */
+.header {
+  background-color: #b20000 ;
+  padding: 10px;
+  color: #fff;
+  text-align: center;
+}
+.logos {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 40px;
+}
+.logo {
+  height: 60px;
+}
+
+/* ===== FOTO DE PERFIL ===== */
+.top-left {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+}
+.avatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 2px solid #b20000;
+  object-fit: cover;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.avatar:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 8px #b20000;
+}
+
+
+.avatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 2px solid #9b9898;
+  object-fit: cover;
+}
+
+/* ===== MENU CENTRAL ===== */
+.menu {
+  text-align: center;
+  margin-top: 100px;
+}
+
+.menu-box {
+  display: inline-block;
+  padding: 40px;
+  border: 1.5px solid #b20000;
+  border-radius: 8px;
+  background-color: #fff;
+}
+
+.link-btn {
+  display: block;
+  width: 220px;
+  margin: 12px auto;
+  padding: 10px;
+  border: 2px solid #b20000;
+  background-color: #fff;
+  color: #000;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 6px;
+  transition: 0.3s;
+  font-size: 16px;
+}
+
+.link-btn:hover {
+  background-color: #b20000;
+  color: #fff;
+}
+
+.votar {
+  background-color: #b20000;
+  color: #fff;
+}
+
+.votar:hover {
+  background-color: red;
+}
+
+/* ===== BOTÃO VOLTAR ===== */
+.botao-voltar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.botao-voltar img {
+  width: 40px;
+  height: 25px;
+}
+
+/* ===== RODAPÉ ===== */
+footer {
+  background-color: #0d0d0d;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 40px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  font-size: 18px; /* igual ao cabeçalho */
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
+
+.logo-sp {
+  height: 45px;
+}
+
+footer .desenvolvido {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+footer .desenvolvido img {
+  height: 45px;
+}

@@ -1,0 +1,176 @@
+/* Layout base */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #fff;
+  color: #000;
+}
+
+/* O conteúdo principal cresce para empurrar o rodapé */
+main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px 0;
+}
+
+/* Rodapé fixo no fim da página */
+footer {
+  background-color: #0d0d0d;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 40px;
+  margin-top: auto; /* <-- mantém o rodapé no fim da tela */
+}
+
+/* Cabeçalho */
+.header {
+  background-color: #b20000;
+  padding: 10px;
+  color: #fff;
+  text-align: center;
+}
+
+.logos {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 40px;
+}
+
+.logo {
+  height: 60px;
+}
+
+/* Container */
+.container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px 0;
+}
+
+/* Card */
+.card {
+  border: 2px solid #b20000;
+  border-radius: 8px;
+  padding: 25px 30px;
+  width: 380px;
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.card h2 {
+  color: #b20000;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+/* Formulário */
+label {
+  display: block;
+  font-weight: bold;
+  margin-top: 10px;
+  color: #000;
+}
+
+input, select {
+  width: 100%;
+  padding: 6px;
+  border: 2px solid #b20000;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  background-color: #f8f8f8;
+}
+
+.botoes {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+.btn {
+  background-color: #b20000;
+  color: #fff;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none;
+  width: 48%;
+  text-align: center;
+}
+
+.btn:hover {
+  background-color: red;
+}
+
+.btn-secondary {
+  background-color: #b20000;
+}
+
+/* Tabela */
+.tabela {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.tabela th, .tabela td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: center;
+}
+
+.tabela th {
+  background-color: #b20000;
+  color: #fff;
+}
+
+.avatar-small {
+  width: 48px;
+  height: 48px;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+/* Mensagem */
+.mensagem {
+  color: #b20000;
+  text-align: center;
+  margin-top: 15px;
+}
+
+/* Rodapé */
+footer {
+  background-color: #0d0d0d;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 40px;
+}
+
+.logo-sp {
+  height: 40px;
+}
+
+footer .desenvolvido {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+footer .desenvolvido img {
+  height: 45px;
+}

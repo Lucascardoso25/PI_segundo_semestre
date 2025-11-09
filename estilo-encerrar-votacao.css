@@ -1,0 +1,167 @@
+/* ================================
+   ESTILO - ENCERRAR VOTAÇÃO (PADRÃO)
+   ================================ */
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #fff;
+  color: #222;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* ================================
+   CABEÇALHO
+   ================================ */
+.header {
+  background-color: #b20000;
+  padding: 10px;
+  text-align: center;
+  color: #fff;
+  font-weight: bold;
+}
+
+.logos {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 40px;
+}
+
+/* ================================
+   CONTEÚDO PRINCIPAL
+   ================================ */
+main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+.caixa {
+  background-color: #fff;
+  border: 3px solid #b71c1c;
+  border-radius: 10px;
+  padding: 30px;
+  width: 380px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.caixa h2 {
+  color: #b71c1c;
+  margin-bottom: 20px;
+}
+
+/* ================================
+   FORMULÁRIO
+   ================================ */
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+label {
+  align-self: flex-start;
+  font-weight: bold;
+  color: #333;
+  margin-top: 12px;
+  margin-bottom: 4px;
+}
+
+select {
+  width: 100%;
+  max-width: 320px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 15px;
+  background: #fdfdfd;
+  transition: border-color 0.3s;
+  margin-bottom: 16px;
+}
+
+select:focus {
+  border-color: #b71c1c;
+  outline: none;
+}
+
+/* ================================
+   BOTÕES
+   ================================ */
+button.btn {
+  width: 100%;
+  background-color: #b71c1c;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  font-size: 15px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background 0.3s;
+}
+
+button.btn:hover {
+  background-color: #900;
+}
+
+/* ================================
+   BOTÃO VOLTAR
+   ================================ */
+.botao-voltar {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.voltar img {
+  width: 45px;
+  height: 25px;
+  transition: transform 0.2s;
+}
+
+.voltar img:hover {
+  transform: scale(1.1);
+}
+
+/* ================================
+   MENSAGEM
+   ================================ */
+.mensagem {
+  color: #900;
+  font-weight: bold;
+  margin-top: 15px;
+}
+
+/* ================================
+   RODAPÉ
+   ================================ */
+footer {
+  background-color: #0d0d0d;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 40px;
+  margin-top: auto;
+}
+
+footer .logo-sp {
+  height: 40px;
+}
+
+footer .desenvolvido {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+footer .desenvolvido img {
+  height: 45px;
+}
