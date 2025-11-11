@@ -22,13 +22,12 @@ if (!isset($_SESSION['user_id']) || $_SESSION['user_tipo'] !== 'adm') {
     <div class="header">
         <h2>Eleição Representante de Sala</h2>
     </div>
-
     <header>
         <div class="logos">
             <img src="img/logo-fatec.png" alt="logo_fatec" width="250">
         </div>
     </header>
-
+    
     <!-- Corpo principal -->
     <main>
         <div class="caixa">

@@ -1,40 +1,60 @@
 <?php
 session_start();
 require_once 'conexao.php';
+require_once 'csrf.php';
+csrf_check();
 
-if (!isset($_SESSION['user_id'])) {
-    header('Location: index.php');
+if (!isset($_SESSION['user_id']) || $_SESSION['user_tipo'] !== 'aluno') {
+    header("Location: index.php");
     exit;
 }
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['foto'])) {
-    $id = $_SESSION['user_id'];
-    $foto = $_FILES['foto'];
+$id_usuario = $_SESSION['user_id'];
 
-    // Verifica se o upload é válido
-    if ($foto['error'] === 0 && $foto['size'] < 5 * 1024 * 1024) { // até 5MB
-        $ext = pathinfo($foto['name'], PATHINFO_EXTENSION);
-        $novoNome = 'uploads/foto_' . $id . '.' . $ext;
+// Pega dados do usuário
+$stmt = $pdo->prepare('SELECT ra, foto FROM usuarios WHERE id = ?'); 
+$stmt->execute([$id_usuario]); 
+$u = $stmt->fetch();
 
-        // Cria a pasta se não existir
-        if (!is_dir('uploads')) {
-            mkdir('uploads', 0777, true);
-        }
+if ($_SERVER['REQUEST_METHOD'] !== 'POST' || empty($_FILES['foto']['name'])) {
+    exit('Nenhuma foto enviada.');
+}
 
-        // Move a imagem
-        if (move_uploaded_file($foto['tmp_name'], $novoNome)) {
-            $stmt = $pdo->prepare("UPDATE usuarios SET foto = ? WHERE id = ?");
-            $stmt->execute([$novoNome, $id]);
-            header('Location: menu_aluno.php');
-            exit;
-        } else {
-            echo "Erro ao mover a imagem.";
-        }
-    } else {
-        echo "Erro: arquivo inválido ou muito grande.";
-    }
-} else {
-    header('Location: menu_aluno.php');
+$f = $_FILES['foto'];
+$erros = [];
+
+// Limite 2MB
+if ($f['size'] > 2 * 1024 * 1024) $erros[] = 'Arquivo muito grande (max 2MB)';
+
+// Tipos permitidos
+$allowed = ['image/jpeg'=>'jpg','image/png'=>'png'];
+$mime = mime_content_type($f['tmp_name']);
+if (!isset($allowed[$mime])) $erros[] = 'Formato inválido';
+
+if ($erros) {
+    foreach ($erros as $e) echo "<p class='erro'>".htmlspecialchars($e)."</p>";
     exit;
 }
-?>
+
+// Nome do arquivo
+$ext = $allowed[$mime];
+$filename = preg_replace('/[^a-zA-Z0-9_-]/','', $u['ra']) . '.' . $ext;
+
+// Pasta img/
+$folder = __DIR__ . '/img/';
+if (!is_dir($folder)) mkdir($folder, 0777, true);
+
+$dest = $folder . $filename;
+
+// Move arquivo
+if (!move_uploaded_file($f['tmp_name'], $dest)) {
+    exit('Falha ao salvar a foto');
+}
+
+// Salva no banco
+$foto_path = 'img/' . $filename;
+$stmt = $pdo->prepare('UPDATE usuarios SET foto = ? WHERE id = ?');
+$stmt->execute([$foto_path, $id_usuario]);
+
+header("Location: menu_aluno.php?msg=foto_atualizada");
+exit;
