@@ -1,55 +1,75 @@
-/* ================================
-   ESTILO - ABRIR VOTAÇÃO (PADRÃO)
-   ================================ */
-
 body {
   font-family: Arial, sans-serif;
   background-color: #fff;
   color: #222;
   margin: 0;
   padding: 0;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+  overflow-x: hidden;
 }
 
-/* ================================
-   CABEÇALHO
-   ================================ */
+/* CABEÇALHO COM FOTO E TÍTULO */
 .header {
   background-color: #b20000;
-  padding: 10px;
-  text-align: center;
   color: #fff;
   font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* separa os lados */
+  padding: 15px 20px;
+  position: relative;
 }
 
+/* Centraliza o texto no meio da tela */
+.header h2 {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
+  font-size: 22px;
+  text-align: center;
+}
+
+
+.header h2 {
+  margin: 0;
+  font-size: 22px;
+}
+
+/* FOTO DO ADM */
+.avatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #444;
+  cursor: pointer;
+}
+
+/* LOGO ABAIXO DO CABEÇALHO */
 .logos {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   padding: 10px 40px;
+  gap: 20px;
 }
 
-/* ================================
-   CONTEÚDO PRINCIPAL
-   ================================ */
+/* CONTEÚDO PRINCIPAL */
 main {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 40px 20px;
+  padding: 30px 20px;
 }
 
+/* CAIXA DE CONTEÚDO */
 .caixa {
   background-color: #fff;
   border: 3px solid #b71c1c;
   border-radius: 10px;
   padding: 30px;
   width: 380px;
+  max-width: 90%;
+  margin: 20px auto;
   text-align: center;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
 .caixa h2 {
@@ -57,9 +77,7 @@ main {
   margin-bottom: 20px;
 }
 
-/* ================================
-   FORMULÁRIOS
-   ================================ */
+/* FORMULÁRIOS */
 form {
   display: flex;
   flex-direction: column;
@@ -74,7 +92,6 @@ label {
   margin-bottom: 4px;
 }
 
-/* 🔹 Todos os campos padronizados (mesmo tamanho) */
 select,
 input[type="number"],
 input[type="datetime-local"] {
@@ -86,18 +103,9 @@ input[type="datetime-local"] {
   font-size: 15px;
   box-sizing: border-box;
   background: #fdfdfd;
-  transition: border-color 0.3s;
 }
 
-select:focus,
-input:focus {
-  border-color: #b71c1c;
-  outline: none;
-}
-
-/* ================================
-   BOTÃO
-   ================================ */
+/* BOTÕES */
 button.btn {
   width: 100%;
   background-color: #b71c1c;
@@ -108,35 +116,25 @@ button.btn {
   font-size: 15px;
   cursor: pointer;
   margin-top: 20px;
-  transition: background 0.3s;
 }
 
 button.btn:hover {
   background-color: #900;
 }
 
-/* ================================
-   BOTÃO VOLTAR
-   ================================ */
+/* BOTÃO VOLTAR */
 .botao-voltar {
-  display: flex;
-  justify-content: center;
   margin-top: 20px;
 }
-
-.voltar img {
-  width: 45px;
-  height: 25px;
+.botao-voltar img {
+  width: 40px;
   transition: transform 0.2s;
 }
-
-.voltar img:hover {
+.botao-voltar img:hover {
   transform: scale(1.1);
 }
 
-/* ================================
-   RODAPÉ
-   ================================ */
+/* RODAPÉ */
 footer {
   background-color: #0d0d0d;
   color: white;
@@ -144,19 +142,39 @@ footer {
   justify-content: space-between;
   align-items: center;
   padding: 10px 40px;
-  margin-top: auto;
 }
 
 footer .logo-sp {
-  height: 40px;
-}
-
-footer .desenvolvido {
-  display: flex;
-  align-items: center;
-  gap: 8px;
+  width: 150px; /* tamanho igual ao menu adm */
 }
 
 footer .desenvolvido img {
-  height: 45px;
+  width: 100px;
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 600px) {
+  .avatar {
+    width: 50px;
+    height: 50px;
+  }
+
+  .header h2 {
+    font-size: 18px;
+  }
+
+  .logos {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  footer {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+
+  footer .logo-sp {
+    width: 120px;
+  }
 }
