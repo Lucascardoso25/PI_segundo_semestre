@@ -56,12 +56,12 @@ $u = $stmt->fetch();
     </div>
   </div>
 
-  <!-- Botão Voltar -->
+  <!-- Botão Sair -->
   <div class="botao-voltar">
-    <a href="index.php">
-      <img src="img/voltar1.png" alt="Voltar">
+    <a href="logout.php" class="voltar" onclick="return confirm('Deseja realmente sair do sistema?');">
+        <img src="img/sair.png" alt="Sair">
     </a>
-  </div>
+</div>
 
   <!-- Rodapé -->
   <footer>

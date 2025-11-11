@@ -1,11 +1,13 @@
+/* ================================
+   ESTILO - CADASTRO (PADRÃO WEBVOTE)
+   ================================ */
+
 body {
-  font-family: Arial, sans-serif;
-  background-color: #fff;
+  font-family: "Arial", sans-serif;
   margin: 0;
   padding: 0;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+  background-color: #fff;
+  text-align: center;
 }
 
 /* Cabeçalho */
@@ -23,19 +25,27 @@ body {
 .logo {
   height: 60px;
 }
+
 /* ================================
-   ÁREA PRINCIPAL
+   CONTEÚDO PRINCIPAL
    ================================ */
-.container {
-  width: 90%;
-  max-width: 900px;
-  margin: 40px auto;
+main {
+  flex: 1;
   display: flex;
   justify-content: center;
+  align-items: flex-start;
+  padding: 40px 0;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 
 .card {
   width: 100%;
+  max-width: 450px;
   border: 3px solid #b71c1c;
   border-radius: 10px;
   padding: 25px;
@@ -50,8 +60,49 @@ body {
 }
 
 /* ================================
-   BOTÕES PADRÃO
+   FORMULÁRIOS
    ================================ */
+label {
+  display: block;
+  margin-top: 12px;
+  font-weight: 600;
+  color: #333;
+  text-align: left;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="file"],
+select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 6px;
+  margin-bottom: 8px;
+  box-sizing: border-box;
+  border: 1px solid #c9c9c9;
+  border-radius: 6px;
+  font-size: 15px;
+  background-color: #fdfdfd;
+  transition: border-color 0.3s;
+  
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: #b71c1c;
+}
+
+/* ================================
+   BOTÕES
+   ================================ */
+.botoes {
+  margin-top: 16px;
+  text-align: center;
+}
+
 .btn {
   display: inline-block;
   padding: 10px 18px;
@@ -62,6 +113,7 @@ body {
   border: none;
   cursor: pointer;
   transition: background 0.3s;
+  width: 180px;
 }
 
 .btn:hover {
@@ -77,63 +129,6 @@ body {
 }
 
 /* ================================
-   CANDIDATOS
-   ================================ */
-.candidatos-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-  margin: 25px 0;
-}
-
-.candidato-card {
-  border: 2px solid #ccc;
-  border-radius: 10px;
-  padding: 10px;
-  width: 160px;
-  text-align: center;
-  transition: 0.3s;
-  background: #f9f9f9;
-  cursor: pointer;
-}
-
-.candidato-card:hover {
-  transform: scale(1.05);
-  border-color: #0077cc;
-  background: #eef6ff;
-}
-
-.foto-container {
-  width: 100%;
-  height: 150px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  border-radius: 8px;
-  background: #eaeaea;
-}
-
-.foto-candidato {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 8px;
-}
-
-.nome-candidato {
-  margin-top: 10px;
-  font-weight: bold;
-  color: #333;
-}
-
-.ra-candidato {
-  font-size: 14px;
-  color: #666;
-}
-
-/* ================================
    RODAPÉ
    ================================ */
 footer {
@@ -143,9 +138,10 @@ footer {
   justify-content: space-between;
   align-items: center;
   padding: 10px 40px;
+  margin-top: auto;
 }
 
-footer .logo-sp {
+footer img.logo-sp {
   height: 40px;
 }
 
@@ -157,16 +153,4 @@ footer .desenvolvido {
 
 footer .desenvolvido img {
   height: 45px;
-}
-.botao-voltar {
-  display: flex;
-  justify-content:center;
-  align-items: center;
-  margin-right: 270px;
-}
-
-
-.voltar img {
-  width: 45px;
-  height: 25px;
 }

@@ -77,13 +77,16 @@ $votacoes_ativas = $stmt->fetchAll();
 </head>
 <body>
 
- <header>
+    <!-- Cabeçalho -->
+    <div class="header">
+        <h2>Tela de Votação</h2>
+    </div>
+
+    <header>
         <div class="logos">
             <img src="img/logo-fatec.png" alt="logo_fatec" width="250">
         </div>        
     </header>
-    <h1>Eleição Representante de Sala</h1>
-  </header>
 
   <!-- Conteúdo Principal -->
   <main class="container">
@@ -135,14 +138,18 @@ $votacoes_ativas = $stmt->fetchAll();
                   <?php endforeach; ?>
                 </div>
 
-                <button class="btn" type="submit">Confirmar Voto</button>
+                <button class="btn" type="submit">Confirmar Voto</button><br>
+                
               </form>
             <?php endif; ?>
           </section>
         <?php endforeach; ?>
       <?php endif; ?>
     </div>
+    <!-- Botão Sair -->
+  
   </main>
+
 
   <!-- Rodapé -->
   <footer>

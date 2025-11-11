@@ -2,15 +2,20 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Cadastro</title>
-<link rel="stylesheet" href="css/estilo-votacao.css" /></head>
+<link rel="stylesheet" href="css/estilo-cadastro.css" /></head>
 <body>
+  <!-- Cabeçalho -->
+  <div class="header">
+      <h2>Tela de Cadastro </h2>
+  </div>
   <header>
+  <!-- Logos -->
+   <header>
       <div class="logos">
           <img src="img/logo-fatec.png" alt="logo_fatec" width="250">
-      </div>        
+      </div> 
+             
   </header>
-    <h1>Eleição Representante de Sala</h1>
-  </div>
   <div class="container">
     <div class="center-flex">
       <div class="card">

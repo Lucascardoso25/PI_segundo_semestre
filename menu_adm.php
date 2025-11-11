@@ -57,9 +57,11 @@ if (!isset($_SESSION['user_id']) || $_SESSION['user_tipo'] !== 'adm') {
         </div>
 
         <div class="botao-voltar">
-            <a href="index.php" class="voltar">
-                <img src="img/voltar1.png" alt="Voltar">
-            </a>
+    <a href="logout.php" class="voltar" onclick="return confirm('Deseja realmente sair do sistema?');">
+        <img src="img/sair.png" alt="Sair">
+    </a>
+</div>
+
         </div>
     </main>
 
