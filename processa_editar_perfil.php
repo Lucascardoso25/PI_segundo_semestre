@@ -26,23 +26,23 @@ $f = $_FILES['foto'];
 $erros = [];
 
 // Limite 2MB
-if ($f['size'] > 2 * 1024 * 1024) $erros[] = 'Arquivo muito grande (max 2MB)';
+if ($f['size'] > 2 * 1024 * 1024) $erros[] = 'Arquivo muito grande (máx. 2MB)';
 
 // Tipos permitidos
-$allowed = ['image/jpeg'=>'jpg','image/png'=>'png'];
+$allowed = ['image/jpeg' => 'jpg', 'image/png' => 'png'];
 $mime = mime_content_type($f['tmp_name']);
-if (!isset($allowed[$mime])) $erros[] = 'Formato inválido';
+if (!isset($allowed[$mime])) $erros[] = 'Formato inválido (somente JPG ou PNG)';
 
 if ($erros) {
     foreach ($erros as $e) echo "<p class='erro'>".htmlspecialchars($e)."</p>";
-    echo '<p><a href="editar_perfil.php">Voltar</a></p>';
+    echo '<p><a href="javascript:history.back()">Voltar</a></p>';
     exit;
 }
 
 // Define o nome do arquivo
 if (empty($u['ra'])) $u['ra'] = 'user_' . $id_usuario;
 $ext = $allowed[$mime];
-$filename = preg_replace('/[^a-zA-Z0-9_-]/','', $u['ra']) . '.' . $ext;
+$filename = preg_replace('/[^a-zA-Z0-9_-]/', '', $u['ra']) . '.' . $ext;
 
 // Pasta img/
 $folder = __DIR__ . '/img/';
@@ -50,9 +50,9 @@ if (!is_dir($folder)) mkdir($folder, 0777, true);
 
 $dest = $folder . $filename;
 
-// Move arquivo
+// Move o arquivo enviado
 if (!move_uploaded_file($f['tmp_name'], $dest)) {
-    exit('Falha ao salvar a foto');
+    exit('Falha ao salvar a foto.');
 }
 
 // Atualiza caminho no banco
@@ -60,8 +60,12 @@ $foto_path = 'img/' . $filename;
 $stmt = $pdo->prepare('UPDATE usuarios SET foto = ? WHERE id = ?');
 $stmt->execute([$foto_path, $id_usuario]);
 
-// Redireciona de acordo com o tipo de usuário
-if ($_SESSION['user_tipo'] === 'adm') {
+// Redireciona de volta para a página que enviou o formulário
+$referer = $_SERVER['HTTP_REFERER'] ?? '';
+
+if (strpos($referer, 'abrir_votacao.php') !== false) {
+    header("Location: abrir_votacao.php?msg=foto_atualizada");
+} elseif ($_SESSION['user_tipo'] === 'adm') {
     header("Location: menu_adm.php?msg=foto_atualizada");
 } else {
     header("Location: menu_aluno.php?msg=foto_atualizada");
