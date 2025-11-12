@@ -28,7 +28,6 @@ $foto = (!empty($u['foto']) && file_exists($u['foto'])) ? $u['foto'] : "img/perf
 </head>
 <body>
 
-
 <!-- CABEÇALHO -->
 <div class="header">
     <!-- FOTO DO ADM -->
@@ -50,6 +49,8 @@ $foto = (!empty($u['foto']) && file_exists($u['foto'])) ? $u['foto'] : "img/perf
         <img src="img/logo-fatec.png" alt="logo_fatec" width="250">
     </div>
 </header>
+
+<!-- CONTEÚDO PRINCIPAL -->
 <main>
     <div class="caixa">
         <h2>Abrir Nova Votação</h2>
@@ -92,6 +93,7 @@ $foto = (!empty($u['foto']) && file_exists($u['foto'])) ? $u['foto'] : "img/perf
     </div>
 </main>
 
+<!-- RODAPÉ -->
 <footer>
     <img class="logo-sp" src="img/logo-saopaulo.png" alt="Governo SP">
     <div class="desenvolvido">

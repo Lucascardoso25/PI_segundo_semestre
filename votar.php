@@ -74,19 +74,58 @@ $votacoes_ativas = $stmt->fetchAll();
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Votação - Eleição Representante de Sala</title>
   <link rel="stylesheet" href="css/estilo-votacao.css">
+  <style>
+    /* Travar o rodapé e manter layout responsivo */
+    html, body {
+      height: 100%;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      font-family: Arial, sans-serif;
+      background-color: #fff;
+    }
+
+    main {
+      flex: 1;
+    }
+
+    footer {
+      background-color: #0d0d0d;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 40px;
+      bottom: 0;
+      width: 100%;
+    }
+
+    /* Centralizar botões de votação */
+    .botoes-voto {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      margin-top: 25px;
+    }
+
+    .botoes-voto a {
+      text-decoration: none;
+    }
+  </style>
 </head>
 <body>
 
-    <!-- Cabeçalho -->
-    <div class="header">
-        <h2>Tela de Votação</h2>
-    </div>
+  <!-- Cabeçalho -->
+  <div class="header">
+      <h2>Tela de Votação</h2>
+  </div>
 
-    <header>
-        <div class="logos">
-            <img src="img/logo-fatec.png" alt="logo_fatec" width="250">
-        </div>        
-    </header>
+  <header>
+      <div class="logos">
+          <img src="img/logo-fatec.png" alt="logo_fatec" width="250">
+      </div>        
+  </header>
 
   <!-- Conteúdo Principal -->
   <main class="container">
@@ -117,7 +156,7 @@ $votacoes_ativas = $stmt->fetchAll();
             <?php if (!$candidatos): ?>
               <p>Sem candidatos cadastrados para esta votação.</p>
             <?php else: ?>
-              <form method="POST" class="form-voto">
+              <form method="POST" class="form-voto" onsubmit="return confirmarVoto();">
                 <?= csrf_field(); ?>
                 <input type="hidden" name="votacao_id" value="<?= htmlspecialchars($v['id']) ?>">
 
@@ -138,18 +177,18 @@ $votacoes_ativas = $stmt->fetchAll();
                   <?php endforeach; ?>
                 </div>
 
-                <button class="btn" type="submit">Confirmar Voto</button><br>
-                
+                <!-- Botões centralizados -->
+                <div class="botoes-voto">
+                  <button class="btn" type="submit">Confirmar Voto</button>
+                  <a href="menu_aluno.php" class="btn btn-secondary">Voltar</a>
+                </div>
               </form>
             <?php endif; ?>
           </section>
         <?php endforeach; ?>
       <?php endif; ?>
     </div>
-    <!-- Botão Sair -->
-  
   </main>
-
 
   <!-- Rodapé -->
   <footer>
@@ -159,6 +198,12 @@ $votacoes_ativas = $stmt->fetchAll();
       <img src="img/webvote.png" alt="WebVote">
     </div>
   </footer>
+
+  <script>
+    function confirmarVoto() {
+      return confirm("Tem certeza de que deseja confirmar seu voto?");
+    }
+  </script>
 
 </body>
 </html>
