@@ -4,10 +4,8 @@ require_once 'conexao.php';
 require_once 'csrf.php';
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    // Validação CSRF
     csrf_check();
 
-    // Recebe dados do formulário
     $nome = trim($_POST['nome']);
     $curso = trim($_POST['curso']);
     $semestre = trim($_POST['semestre']);
@@ -20,13 +18,24 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         die("Usuário não autenticado.");
     }
 
+    // ❗ VERIFICA SE O RA JÁ ESTÁ CADASTRADO
+    $stmt = $pdo->prepare("SELECT id FROM representantes WHERE ra = ?");
+    $stmt->execute([$ra]);
+    if ($stmt->fetch()) {
+        echo "<script>
+            alert('❌ Já existe um representante cadastrado com esse RA!');
+            window.location.href='" . ($tipo_usuario === 'adm' ? 'cadastrar_representante_adm.php' : 'cadastrar_representante.php') . "';
+        </script>";
+        exit;
+    }
+
     try {
-        // Inserir o novo representante
+        // Inserir novo representante
         $stmt = $pdo->prepare("INSERT INTO representantes (nome, curso, semestre, ra, ano, id_usuario)
                                VALUES (?, ?, ?, ?, ?, ?)");
         $stmt->execute([$nome, $curso, $semestre, $ra, $ano, $id_usuario]);
 
-        // Redireciona conforme o tipo de usuário
+        // Redirecionamento correto
         if ($tipo_usuario === 'adm') {
             echo "<script>
                 alert('Representante cadastrado com sucesso pelo administrador!');
@@ -35,7 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         } else {
             echo "<script>
                 alert('Cadastro realizado com sucesso!');
-                window.location.href='menu_aluno.php';
+                window.location.href='cadastrar_representante.php';
             </script>";
         }
 

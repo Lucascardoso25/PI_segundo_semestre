@@ -8,6 +8,16 @@ if (!isset($_SESSION['user_id']) || $_SESSION['user_tipo'] !== 'aluno') {
     exit;
 }
 
+// Puxa dados do aluno logado
+$stmt = $pdo->prepare("SELECT nome, curso, semestre, ra, ano FROM usuarios WHERE id = ?");
+$stmt->execute([$_SESSION['user_id']]);
+$aluno = $stmt->fetch(PDO::FETCH_ASSOC);
+
+// Se não encontrar o aluno (não deveria acontecer)
+if (!$aluno) {
+    die("Erro: usuário não encontrado.");
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -17,67 +27,59 @@ if (!isset($_SESSION['user_id']) || $_SESSION['user_tipo'] !== 'aluno') {
     <link rel="stylesheet" href="estilo-cadastrar-representante.css">
 </head>
 <body>
-    <!-- Cabeçalho -->
-  <div class="header">
-      <h2>Eleição Representante de Sala</h2>
-  </div>
 
-  <header>
-      <div class="logos">
-          <img src="img/logo-fatec.png" alt="logo_fatec" width="250">
-      </div>
-       
+<!-- Cabeçalho -->
+<div class="header">
+    <h2>Eleição Representante de Sala</h2>
+</div>
 
-  </header>
-    
-    <main>
-        <div class="caixa">
-            <form action="processa_cadastro_representante.php" method="POST" enctype="multipart/form-data">
-                <?= csrf_field(); ?>
+<header>
+    <div class="logos">
+        <img src="img/logo-fatec.png" alt="logo_fatec" width="250">
+    </div>
+</header>
 
-                <legend>Nome Completo:</legend>
-                <input type="text" name="nome" required>
+<main>
+    <div class="caixa">
 
-                <legend>Curso:</legend>
-                <select name="curso" required>
-                    <option value="">Selecione</option>
-                    <option value="Gestão Empresa">Gestão Empresa</option>
-                    <option value="Gestão Industrial">Gestão Industrial</option>
-                    <option value="Desenvolvimento de Software">Desenvolvimento de Software</option>
-                </select>
+        <form action="processa_cadastro_representante.php" method="POST">
+            <?= csrf_field(); ?>
 
-                <legend>Semestre:</legend>
-                <select name="semestre" required>
-                    <option value="">Selecione</option>
-                    <?php for ($i=1; $i<=6; $i++): ?>
-                        <option value="<?= $i ?>"><?= $i ?>º</option>
-                    <?php endfor; ?>
-                </select>
+            <legend>Nome Completo:</legend>
+            <input type="text" name="nome" value="<?= htmlspecialchars($aluno['nome']) ?>" readonly>
 
-                <legend>RA:</legend>
-                <input type="text" name="ra" required>
+            <legend>Curso:</legend>
+            <input type="text" name="curso" value="<?= htmlspecialchars($aluno['curso']) ?>" readonly>
 
-                <legend>Ano:</legend>
-                <input type="number" name="ano" min="2000" max="2100" required>
+            <legend>Semestre:</legend>
+            <input type="text" name="semestre" value="<?= htmlspecialchars($aluno['semestre']) ?>º" readonly>
 
-                <button type="submit">Cadastrar</button>
-            </form>
+            <legend>RA:</legend>
+            <input type="text" name="ra" value="<?= htmlspecialchars($aluno['ra']) ?>" readonly>
 
-            <div class="botao-voltar">
-                <a href="menu_aluno.php" class="voltar">
-                    <img src="img/voltar1.png" alt="Voltar">
-                </a>
-            </div>
+            <legend>Ano:</legend>
+            <input type="number" name="ano" value="<?= htmlspecialchars($aluno['ano']) ?>" readonly>
+
+            <br><br>
+            <button type="submit">Cadastrar</button>
+        </form>
+
+        <div class="botao-voltar">
+            <a href="menu_aluno.php" class="voltar">
+                <img src="img/voltar1.png" alt="Voltar">
+            </a>
         </div>
-    </main>
 
-  <!-- Rodapé -->
-  <footer>
-      <img class="logo-sp" src="img/logo-saopaulo.png" alt="Governo SP">
-      <div class="desenvolvido">
-          <p><i>Desenvolvido por</i></p>
-          <img src="img/webvote.png" alt="WebVote">
-      </div>
-  </footer>
+    </div>
+</main>
+
+<footer>
+    <img class="logo-sp" src="img/logo-saopaulo.png" alt="Governo SP">
+    <div class="desenvolvido">
+        <p><i>Desenvolvido por</i></p>
+        <img src="img/webvote.png" alt="WebVote">
+    </div>
+</footer>
+
 </body>
 </html>
